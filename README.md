@@ -9,12 +9,12 @@ The CSE system includes a self-contained web and websockets application as well 
 
 ### Running CSE
 
-In separate screens, run the following:
-./bin/run_websocket_service.sh
-./bin/run_web_service.sh
+    In separate screens, run the following:
+    ./bin/run_websocket_service.sh
+    ./bin/run_web_service.sh
 
-Then open the following URL in a browser: 
-http://localhost:8080/
+    Then open the following URL in a browser: 
+    http://localhost:8080/
 
 
 ## Components
