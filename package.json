@@ -1,0 +1,42 @@
+{
+  "name": "node-clock-sync-experiment",
+  "preferGlobal": true,
+  "version": "0.1.0",
+  "author": "Jamie Pitts <james.pitts@gmail.com>",
+  "description": "Exploration of how to structure a websockets app for clock synchronization.",
+  "contributors": [ 
+    {
+      "name": "Jamie Pitts",
+      "email": "james.pitts@gmail.com"
+    } 
+  ],
+  "bin": {
+  },
+  "scripts": {
+  },
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpitts/node-clock-sync-experiment.git"
+  },
+  "keywords": [
+    "clock",
+    "precision time",
+    "websockets"
+  ],
+  "dependencies" : {
+    "engine.io": ">=0.8.x"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "mocha": "1.16.x",
+    "engine.io-client":"0.8.0"
+  },
+  "bundledDependencies": [
+  ],  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.x"
+  }
+}
+
