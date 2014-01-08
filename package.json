@@ -25,16 +25,16 @@
     "websockets"
   ],
   "dependencies" : {
-    "engine.io": ">=0.8.x"
-  },
-  "analyze": false,
-  "devDependencies": {
-    "mocha": "1.16.x",
+    "engine.io": ">=0.8.x",
     "engine.io-client":"0.8.0",
     "forever": "0.10.x",
     "express": "3.4.x",
     "express-partials": "0.1.x",
     "ejs": "0.8.x"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "mocha": "1.16.x"
   },
   "bundledDependencies": [
   ],  

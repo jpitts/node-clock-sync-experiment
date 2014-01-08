@@ -7,6 +7,15 @@ An exploration of how to structure a websockets app for clock synchronization.
 
 The CSE system includes a self-contained web and websockets application as well as client-side javascript.
 
+## Installing CSE
+    
+    CSE requires node.js 0.10.x
+
+    In order to install the node dependencies:
+    npm install
+
+    See the "dependencies" entry in package.json for a complete list.
+
 ### Running CSE
 
     In separate screens, run the following:
