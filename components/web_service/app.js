@@ -14,9 +14,11 @@ var express = require('express')
 
 var service_cfg = {
   web: {
+    host: 'localhost',
     port: (process.env.CLOCK_WEB_PORT ? process.env.CLOCK_WEB_PORT : 8080),
   },
   websocket: {
+    host: 'localhost',
     port: (process.env.CLOCK_WS_PORT ? process.env.CLOCK_WS_PORT : 8081),
   }
 };

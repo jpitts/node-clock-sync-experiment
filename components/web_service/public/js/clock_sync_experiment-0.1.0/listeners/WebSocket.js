@@ -21,25 +21,45 @@
     var port = CSE.config.websocket.port;
     
     // establish an engine.io websocket connection
-    var socket = CSE.WebSocket.socket = new eio.Socket('ws://' + domain_name + ':' + port + '/');
+    //var socket = CSE.WebSocket.socket = new eio.Socket('ws://' + domain_name + ':' + port + '/');
+    var socket = CSE.WebSocket.socket = new io.connect('ws://' + domain_name + ':' + port + '/');
     
-    // define the on listeners
-    socket.on('open', function () {
-      console.log('eio open');
+    // on connection    
+    socket.on('connect', function () {
+      console.log('websocket open');
       //console.log(CSE.WebSocket.socket);
-      
-      // messge 
-      socket.on('message', function (data) { 
-        console.log('websocket message ', data);
-      });
-      
+
+      // ack the connect 
+      socket.emit('system.connect_ack', { time_connected: (new Date).getTime() });
+ 
       // close
       socket.on('close', function () { 
         console.log('websocket close');
+      });     
+     
+
+      // define the on listeners
+
+      // clock tick
+      socket.on('clock.tick', function (data) { 
+        console.log('websocket on clock.tick ' + data.time);
+        
+        var current_time = (new Date).getTime();
+        jQuery('#clock-display-pretty').html(new Date(data.time));
+        jQuery('#clock-display').html(data.time);
+        
+        // ack the tick receive
+        socket.emit('clock.tick_ack', {
+          time_received: current_time 
+        }); 
+
       });
-    
+ 
+ 
     });
-    
+
+
+   
     cb(); 
 
   }
