@@ -25,6 +25,7 @@
     "websockets"
   ],
   "dependencies" : {
+    "socket.io": ">=0.9.x",
     "engine.io": ">=0.8.x",
     "engine.io-client":"0.8.0",
     "forever": "0.10.x",
