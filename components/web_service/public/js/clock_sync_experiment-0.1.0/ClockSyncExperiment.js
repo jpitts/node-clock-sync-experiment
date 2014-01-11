@@ -25,19 +25,24 @@
         attr.websocket - contains info about the websocket server - example: { port: 8080 }
     */
 
- 
     // wait until the page is ready
     jQuery(document).ready(function() {
       
       // set up the client config
-      CSE.config = {
-        websocket: { port: attr.websocket.port }
-      };
-       
-      // initialize the websocket listeners
-      CSE.WebSocket.init({}, function () {});
+      CSE.config = attr;
+        
+      // initialize the client clock
+      CSE.Clock.init({}, function () {
+      
+        // initialize the websocket listeners
+        CSE.WebSocket.init({}, function () {
 
-      cb();
+          cb();
+
+        });
+
+      });  
+     
 
     });
 

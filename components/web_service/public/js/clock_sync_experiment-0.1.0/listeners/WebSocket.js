@@ -11,6 +11,7 @@
 
 (function (clock_sync_experiment) {
   var listener = (clock_sync_experiment.WebSocket = {});
+  
 
   // init the listeners
 
@@ -38,7 +39,7 @@
       });     
      
 
-      // define the on listeners
+      // define the websocket on listeners
 
       // clock tick
       socket.on('clock.tick', function (data) { 
@@ -47,6 +48,12 @@
         var current_time = (new Date).getTime();
         jQuery('#clock-display-pretty').html(new Date(data.time));
         jQuery('#clock-display').html(data.time);
+        
+        // store the tick
+        CSE.Clock.add_tick({
+          time: data.time,
+          time_received: current_time
+        });
         
         // ack the tick receive
         socket.emit('clock.tick_ack', {

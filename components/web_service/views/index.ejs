@@ -8,6 +8,7 @@
   
   <script src="/js/clock_sync_experiment-0.1.0/ClockSyncExperiment.js"></script>
   <script src="/js/clock_sync_experiment-0.1.0/listeners/WebSocket.js"></script>
+  <script src="/js/clock_sync_experiment-0.1.0/models/Clock.js"></script>
 
 </head>
 
@@ -25,7 +26,8 @@
   // fire up the experiment
   CSE.init({ 
     // define the config
-    websocket: { port: <%= service_cfg.websocket.port %> }  
+    websocket: { port: <%= service_cfg.websocket.port %> },
+    clock: { ticks_per_second: <%= service_cfg.clock.ticks_per_second %> },
   }, function () {
     
 

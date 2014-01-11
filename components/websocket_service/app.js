@@ -26,6 +26,9 @@ var service_cfg = {
   websocket: {
     host: 'localhost',
     port: (process.env.CLOCK_WS_PORT ? process.env.CLOCK_WS_PORT : 8081),
+  },
+  clock: {
+    ticks_per_second: 10
   }
 };
 
@@ -53,9 +56,9 @@ websocket_server.on('connection', function (socket) {
     
   });
   
-  // on close
-  socket.on('close', function () { 
-    console.log('on close');  
+  // on disconnect
+  socket.on('disconnect', function () { 
+    console.log('on disconnect');  
     
     // delete from the pool
     delete socket_pool[socket.id];
@@ -116,7 +119,7 @@ var start_ticking = function (attr) {
        
     } 
  
-  }, 1000);
+  }, ( 1000 / (service_cfg.clock.ticks_per_second ? service_cfg.clock.ticks_per_second : 1) ) );
 }
 
 
