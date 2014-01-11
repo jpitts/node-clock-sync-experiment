@@ -28,7 +28,7 @@ var service_cfg = {
     port: (process.env.CLOCK_WS_PORT ? process.env.CLOCK_WS_PORT : 8081),
   },
   clock: {
-    ticks_per_second: 10
+    ticks_per_second: 1
   }
 };
 

@@ -14,8 +14,8 @@
   
   // clock attributes
   clock.ticks = [];
-  clock.ticks_maxlength = 100;
-  
+  clock.ticks_maxlength = 25;
+  clock.show_recent_ticks = false; 
    
   // init the clock
 
@@ -31,9 +31,9 @@
   
   clock.add_tick = function (attr, cb) {
     console.log('CSE.Clock.add_tick()');
-    console.log(clock.ticks.length);
+    //console.log(clock.ticks.length);
 
-    clock.ticks.push(attr);
+    clock.ticks.unshift(attr);
      
     // trim the tick array
     if (clock.ticks.length >= clock.ticks_maxlength) {

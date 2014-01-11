@@ -46,14 +46,23 @@
         console.log('websocket on clock.tick ' + data.time);
         
         var current_time = (new Date).getTime();
+        
+        // render the clock
         jQuery('#clock-display-pretty').html(new Date(data.time));
         jQuery('#clock-display').html(data.time);
-        
+
         // store the tick
         CSE.Clock.add_tick({
           time: data.time,
           time_received: current_time
         });
+
+        // render the recent ticks
+        if (CSE.Clock.show_recent_ticks) {
+          var ticks_html = '';
+          for (var i=1; i<CSE.Clock.ticks.length; i++) { ticks_html = ticks_html + '<div class="clock-tick">' + CSE.Clock.ticks[i].time + '</div>' }
+          jQuery('#clock-ticks').html(ticks_html);
+        }
         
         // ack the tick receive
         socket.emit('clock.tick_ack', {

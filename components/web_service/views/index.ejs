@@ -7,6 +7,7 @@
   <script src="/js/jquery-1.10.2/jquery-1.10.2.min.js"></script>
   
   <script src="/js/clock_sync_experiment-0.1.0/ClockSyncExperiment.js"></script>
+  <script src="/js/clock_sync_experiment-0.1.0/controllers/ClockController.js"></script>
   <script src="/js/clock_sync_experiment-0.1.0/listeners/WebSocket.js"></script>
   <script src="/js/clock_sync_experiment-0.1.0/models/Clock.js"></script>
 
@@ -19,6 +20,12 @@
   <div id="clock-title">Live clock tick:</div>
   <div id="clock-display-pretty"></div>
   <div id="clock-display"></div>
+  
+  <input type="button" name="toggle_recent_ticks" value="Toggle Recent Ticks" onclick="CSE.ClockController.toggle_recent_ticks();"/>
+  <div id="clock-ticks">&nbsp;</div>
+  <div>
+
+  </div>
 </div>
 
 <script>
