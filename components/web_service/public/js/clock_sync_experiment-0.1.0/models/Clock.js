@@ -34,7 +34,7 @@
     //console.log(clock.ticks.length);
 
     clock.ticks.unshift(attr);
-     
+
     // trim the tick array
     if (clock.ticks.length >= clock.ticks_maxlength) {
       clock.ticks.pop();

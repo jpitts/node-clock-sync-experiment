@@ -44,9 +44,12 @@
       // clock tick
       socket.on('clock.tick', function (data) { 
         console.log('websocket on clock.tick ' + data.time);
-        
+
         var current_time = (new Date).getTime();
-        
+        // latency("latency form server to client" + "offset")
+        var latency = current_time - data.time;
+        console.log('latency from server to client + offset: ' + latency);
+
         // render the clock
         jQuery('#clock-display-pretty').html(new Date(data.time));
         jQuery('#clock-display').html(data.time);
@@ -63,10 +66,12 @@
           for (var i=1; i<CSE.Clock.ticks.length; i++) { ticks_html = ticks_html + '<div class="clock-tick">' + CSE.Clock.ticks[i].time + '</div>' }
           jQuery('#clock-ticks').html(ticks_html);
         }
-        
-        // ack the tick receive
+
+
+        // ack the tick receive and time latency("offset" + "latency form server to client")
         socket.emit('clock.tick_ack', {
-          time_received: current_time 
+          time_received: current_time,
+          latency : latency,
         }); 
 
       });

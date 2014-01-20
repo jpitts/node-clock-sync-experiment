@@ -66,7 +66,17 @@ require('../../lib/ClockSyncExperiment').init({}, function (err, CSE) {
     }); 
 
     socket.on('clock.tick_ack', function (payload) {
+      var current_time = (new Date).getTime();
+      var ack_time = payload.time_received;
+      // "latency form server to client" + "offset"
+      var latency_s2c = payload.latency;
+      // "latency form client to server" - "offset"
+      var latency_c2s = current_time - ack_time;
+      // get the average latency between client and server
+      var average_altency = (latency_s2c + latency_c2s) / 2;
+
       console.log('on clock.tick_ack from client id[' + socket.id + '] at ' + payload.time_received);
+      console.log('latency_s2c=' + latency_s2c + ', latency_c2s=' + latency_c2s + ", average_altency=" + average_altency);
     });
 
   });
