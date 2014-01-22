@@ -20,6 +20,10 @@ exports.config = {
   },
   clock: {
     ticks_per_second: 1
-  }
+  },
+  test: {
+    host: 'localhost',
+    port: (process.env.CLOCK_TEST_PORT ? process.env.CLOCK_TEST_PORT : 8888),
+  },
 };
 
