@@ -5,7 +5,8 @@
   <!-- <script src="/js/engine.io-0.8.0/engine.io.js"></script> -->
   <script src="http://<%= service_cfg.websocket.host %>:<%= service_cfg.websocket.port %>/socket.io/socket.io.js"></script>
   <script src="/js/jquery-1.10.2/jquery-1.10.2.min.js"></script>
-  
+  <script src="/js/ps_math_stats-2.0/psMathStats.min.js"></script>
+
   <script src="/js/clock_sync_experiment-0.1.0/ClockSyncExperiment.js"></script>
   <script src="/js/clock_sync_experiment-0.1.0/controllers/ClockController.js"></script>
   <script src="/js/clock_sync_experiment-0.1.0/listeners/WebSocket.js"></script>
@@ -37,6 +38,10 @@
     clock: { ticks_per_second: <%= service_cfg.clock.ticks_per_second %> },
   }, function () {
     
+    // SEE: https://github.com/pseudosavant/psMathStats
+    // this makes functions available on arrays
+    console.log('calculating mean: ' +  [1,3,5].mean() );
+    console.log('calculating standard deviation: ' +  [1,1,3,5,5,100].stdDev() );
 
   });
 </script>

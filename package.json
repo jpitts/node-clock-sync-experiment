@@ -32,7 +32,8 @@
     "forever": "0.10.x",
     "express": "3.4.x",
     "express-partials": "0.1.x",
-    "ejs": "0.8.x"
+    "ejs": "0.8.x",
+    "numbers": "0.4.x"
   },
   "analyze": false,
   "devDependencies": {
