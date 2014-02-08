@@ -14,9 +14,9 @@
   
   // clock attributes
   clock.ticks = [];
-  clock.ticks_maxlength = 25;
-  clock.show_recent_ticks = false; 
-   
+  clock.ticks_maxlength = 100;
+  clock.show_recent_ticks = false;
+
   // init the clock
 
   clock.init = function (attr, cb) {
@@ -41,7 +41,6 @@
     }
     
   }
-  
   
 }) (( window.CSE=window.CSE || {}));
 // only you can prevent global namespace collisions

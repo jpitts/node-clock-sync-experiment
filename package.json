@@ -34,7 +34,8 @@
     "express-partials": "0.1.x",
     "ejs": "0.8.x",
     "numbers": "0.4.x",
-    "nightwatch":"0.3.x"
+    "nightwatch":"0.3.x",
+    "crypto":"0.0.3"
   },
   "analyze": false,
   "devDependencies": {
