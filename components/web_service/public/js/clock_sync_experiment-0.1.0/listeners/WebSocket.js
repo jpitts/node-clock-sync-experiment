@@ -110,9 +110,18 @@
                 time: CSE.PTPData.sync_recv_time,
                 time_calibration: (CSE.PTPData.sync_recv_time + clock_offset)
               })
+              
+              jQuery('#clock-display-pretty').html(new Date((CSE.PTPData.sync_recv_time + clock_offset)));
+              jQuery('#clock-display').html(CSE.PTPData.sync_recv_time);
+
 
             } else {
               console.log('Current roundtrip dalay is not within double stanard deviation in the normal distribution.');
+
+              jQuery('#clock-display-pretty').html('Roundtrip delay not within expected range.');
+              jQuery('#clock-display').html(CSE.PTPData.sync_recv_time);
+
+
             }
           }
         }
